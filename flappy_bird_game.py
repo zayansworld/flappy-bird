@@ -199,12 +199,15 @@ def flappygame():
         # Set the fps
         fps_clock.tick(fps)
 
+black=(0,0,0)
 #initializing the birds position
 while True:
 
     #setting co-ords for bird
     horizontal = int(window_width/5)
     vertical = int((window_height - game_images['flappybird'].get_height())/2)
+
+    
 
     #for base
     ground = 0
@@ -229,6 +232,12 @@ while True:
                 window.blit(game_images['background'], (0, 0))
                 window.blit(game_images['flappybird'], (horizontal, vertical))
                 window.blit(game_images['sea_level'], (ground, elevation))
+
+                font = pygame.font.SysFont("Comic Sans", 25)
+                intro_text = font.render("Welcome to the definitely real Flappy Bird", True, black)
+                start_text = font.render("press space or the up arrow to start the game", True, black)
+                window.blit(intro_text,(220 - intro_text.get_width() // 3, 150 - intro_text.get_height() // 3))
+                window.blit(start_text,(200 - intro_text.get_width() // 3, 200 - start_text.get_height() // 3))
 
                 # Just Refresh the screen
                 pygame.display.update()        
